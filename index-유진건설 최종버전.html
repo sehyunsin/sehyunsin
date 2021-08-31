@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>유진종합건설</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        //상단 메뉴 마우스대면 슬라이딩 나타내게 mouseenter 말고 mouseover도 됨 대신 over out은 버블링 있음
+        $("nav li> a").mouseenter(function(){
+            $("nav nav").stop().slideDown(800);
+        });
+        //마우스때면 슬라이딩 위로 mouseleave 말고 mouseout도 됨
+        $("nav ul").mouseleave(function(){
+            $("nav nav").stop().slideUp(500);
+        });
+        //상단 이미지 슬라이드  자동 이동 i가 2인 이유는 애초에 사진이 3장이기 떄문에 2 1 0 순으로 이동
+        const visual = setInterval(fading, 2000);
+
+        let i = 2;
+        function fading(){
+            $("#slide img").eq(i).fadeOut(2000);
+            i--;
+            if( i == -1 ){
+                $("#slide img").fadeIn(2000);
+                i = 2;
+            }
+        }
+
+        
+    });
+</script>
+<style> 
+* {margin: 0; padding: 0; box-sizing: border-box;} /* (*)별표시는 이페이지 전체의 기본적인 스타일 마진은 밖에서 부터 팡 패딩은 안에서 부터 팡 보더라는건 그냥 겉에 테두리*/
+html,body {font:10pt/180% "맑은 고딕" , "돋음"; 
+color: #333; background: #f2f2f2;}
+a {color: #333; text-decoration: none;}
+img {display: block; max-width: 100%;}
+
+#layout {width: 1200px; margin: auto;
+background: white;}
+
+/*상단로고*/
+header  {padding-top: 20px;}
+h1 {text-align: center; margin-bottom: 10px;}
+h1 img {display: inline;}
+
+/*상단 메뉴*/
+nav ul {display: flex; list-style: none;}
+nav li {flex: 1; text-align: center; position: relative;}
+nav li> a:hover {background: #ff5050; color: white;}
+nav li> a {padding: 10px; font-size: 1.2rem; font-weight: bold;}
+nav a {display: block;}
+
+
+/*상단서브메뉴*/
+nav nav> a {padding: 9px; color: white;}
+nav nav {position: absolute; z-index:1; background: #ff5050; width: 100%; display: none;}/*z-index로 슬라이드 때매 뒤로 간 메뉴를 위로 올라가게*/
+nav nav> a:hover {background: #ffc000; font-weight: bold; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);}
+
+/*슬라이드 relative 는 이 범위 내에서만 모든 작업이 이뤄지게 absolute는 여러 퍼져 있는 사진등을 아래쪽에 있는거 부터 위쪽 순서로 겹치게 */
+header + section>h2 {display: none;}/*이미지 슬라이드 라는 설명 글자 없게 만듬*/
+#slide {position: relative; height: 340px;}
+#slide img {position: absolute;}
+
+/*공지 갤러리 및 사진 부분*/
+main {display: flex; padding: 10px;}
+main> div {flex:1; margin-right: 40px;}
+main> section {flex:2;}
+main> section h2 {display: none;}
+#notice {margin-bottom: 40px;}/*공지사항과 갤러리 부분 간격*/
+#notice ul {list-style: none; line-height: 250%;}
+#notice li {border-bottom: 1px dashed #999;}
+#notice a:hover {color: #ff5050; text-decoration: underline;}
+#notice span {float: right;}
+#gallery {display: flex; justify-content: space-between;} /*갤러리 사진과 글 양쪽 정렬 후 가운데 정렬*/
+
+
+/*공지사항 갤러리 제목 스타일*/
+.tlt {display: inline-block; color: #ff5050; border: 1px solid #ff5050;
+font-size: 1.2rem; padding: 3px 6px; margin-bottom: 20px;}
+
+/*footer*/
+footer {display: flex; align-items: center; margin-bottom: 20px; padding: 10px;}
+footer>p {flex: 1;}
+footer a:hover {text-decoration: underline;}
+</style>
+</head>
+<body>
+	<div id="layout">
+		<header>
+			<h1>
+				<a href="#"><img src="images/logo.gif" alt="로고"></a>
+			</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="#">회사소개</a>
+						<nav>
+							<a href="#">인사말</a>
+							<a href="#">조직구성도</a>
+							<a href="#">오시는 길</a>
+						</nav>
+					</li>
+					<li>
+						<a href="#">사업영역</a>
+						<nav>
+							<a href="#">전원주택</a>
+							<a href="#">도시재생</a>
+							<a href="#">인테리어</a>
+						</nav>
+					</li>
+					<li>
+						<a href="#">입주정보</a>
+						<nav>
+							<a href="#">입주단지</a>
+							<a href="#">입주갤러리</a>
+							<a href="#"> &nbsp;</a>
+						</nav>
+					</li>
+					<li>
+						<a href="#">고객센터</a>
+						<nav>
+							<a href="#">공지사항</a>
+							<a href="#">건축상담</a>
+							<a href="#">홍보자료실</a>
+						</nav>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<section>
+			<h2>이미지 슬라이드</h2>
+			<div id="slide">
+				<img src="images/visual3.jpg" alt="건설 한길 40년">
+				<img src="images/visual2.jpg" alt="정직 성실 고객">
+				<img src="images/visual1.jpg" alt="고객 감동을 위해">
+			</div>
+		</section>
+		<main>
+			<div>
+				<section id="notice">
+					<h2 class="tlt">공지사항</h2>
+					<ul>
+						<li>
+							<a href="#">유진건설 2019 신규 아파트 건설현장</a>
+							<span>2019.06.18</span>
+						</li>
+						<li>
+							<a href="#">계열사 전직원 복지 관련 전체 공지</a>
+							<span>2019.05.18</span>
+						</li>
+						<li>
+							<a href="#">유진건설 건설부분 소비자 만족도</a>
+							<span>2019.03.18</span>
+						</li>
+						<li>
+							<a href="#">건축법령 시행 제25조 8항 건축병행</a>
+							<span>2019.03.02</span>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2 class="tlt">갤러리</h2>
+					<div id="gallery">
+						<a href="#"><img src="images/gallery1.jpg" alt="설계도면"></a>
+						<a href="#"><img src="images/gallery2.jpg" alt="인천대교 건설"></a>
+						<a href="#"><img src="images/gallery3.jpg" alt="논현동 육교 건설"></a>
+					</div>
+				</section>
+			</div>
+			<section>
+				<h2>비즈니스</h2>
+				<img src="images/business.jpg" alt="건축사업, 토목사업">
+			</section>
+		</main>
+		<footer>
+			<p>
+				<a href="#">업체소개</a>
+				<a href="#">이용약관</a>
+				<a href="#">개인정보취급방침안내</a>
+				<a href="#">계열사안내</a><br>
+				42175 대구광역시 수성구 무학로 117 (두산동)
+				Tel : 023-122-3344
+				Fax : 023-765-4231
+				E-mail : <a href="#">yujin@hanmail.net</a><br>
+				copyright ⓒ Yujin.com   Allright reserved;
+			</p>
+			<select onchange="if(this.value) window.open(this.value);">
+				<option value="#">계열사를 선택하세요.</option>
+				<option value="http://naver.com">유진종합건설</option>
+				<option value="http://apple.com">유진푸드</option>
+				<option value="http://adobe.com">유진종합캐미칼</option>
+				<option value="https://google.com">유진제철</option>
+			</select>
+		</footer>
+	</div>
+</body>
+</html>
