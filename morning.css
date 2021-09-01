@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  font: 10pt/180% "나눔고딕";
+  color: #666;
+  background: #fff;
+}
+#layout {
+  max-width: 1100px;
+  margin: auto;
+}
+img {
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  color: #666;
+}
+
+/*상단*/
+header {
+  display: flex;
+  padding-top: 50px;
+  height: 200px;
+  align-items: flex-start;
+}
+header > h1 {
+  margin-right: 150px;
+}
+header > ul {
+  list-style: none;
+  flex: 1;
+  display: flex;
+  background: white;
+  margin-top: 25px;
+  height: 30px;
+  transition: 0.5s;
+  position: relative;
+  z-index: 1;
+}
+header > ul.active {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+  height: 200px;
+}
+
+/*메인메뉴*/
+header li {
+  flex: 1;
+  position: relative;
+}
+header li > a {
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: block;
+  text-align: center;
+  padding: 5px;
+}
+header li > a:hover {
+  background: #004f8a;
+  color: white;
+}
+
+/*하위메뉴*/
+nav {
+  position: absolute;
+  z-index: 1;
+  background: white;
+  width: 100%;
+  text-align: center;
+  line-height: 260%;
+  display: none;
+  padding-top: 10px;
+}
+nav > a {
+  display: block;
+}
