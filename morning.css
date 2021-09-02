@@ -14,6 +14,8 @@ body {
 #layout {
   max-width: 1100px;
   margin: auto;
+  overflow: hidden;
+  position: relative;
 }
 img {
   max-width: 100%;
@@ -79,4 +81,148 @@ nav {
 }
 nav > a {
   display: block;
+}
+
+nav > a:hover {
+  color: #004f8a;
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+/*슬라이드 부분*/
+#slide {
+  display: flex;
+  position: relative;
+}
+
+header + section {
+  position: relative;
+}
+header + section > h2 {
+  position: absolute;
+  z-index: 1;
+  background: white;
+  padding: 30px 45px;
+  border-radius: 20px;
+  left: 33%;
+  top: 32%;
+}
+
+/*메인영역*/
+main {
+  display: flex;
+  margin-top: 50px;
+}
+main > section {
+  flex: 1;
+}
+
+main h2 {
+  border-bottom: 1px solid #666;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+/*공지사항*/
+#notice {
+  margin-right: 100px;
+}
+
+#notice ul {
+  list-style: none;
+  line-height: 220%;
+}
+#notice a:hover {
+  color: #004f8a;
+  text-decoration: underline;
+}
+#notice span {
+  float: right;
+}
+/*협력사*/
+#partner {
+  flex: 1.2;
+}
+#partner > a {
+  width: 90%;
+  display: block;
+  margin: auto;
+}
+#partner img {
+  display: block;
+}
+#partner div {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+#partner ul {
+  line-height: 160%;
+}
+#partner section {
+  width: 120px;
+  height: 120px;
+  background: #666;
+  color: white;
+  border-radius: 50%; /*겉면 둥굴게*/
+}
+#partner h3 {
+  margin-top: 33%;
+  font-size: 1.15rem;
+  text-align: center;
+  letter-spacing: -1px;
+  line-height: 140%;
+}
+
+/*배너영역*/
+#banner h2 {
+  display: none;
+}
+#banner div {
+  padding-top: 30px;
+  text-align: right;
+}
+#banner a {
+  margin-bottom: 10px;
+  display: block;
+}
+
+/*footer*/
+footer {
+  background: #ddd;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin-top: 50px;
+}
+footer a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+/*팝업*/
+#popup {
+  position: absolute;
+  top: 30vh;
+  width: 500px;
+  height: 300px;
+  z-index: 1;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  left: calc((100% - 500px) / 2);
+  padding: 20px;
+}
+#popup h3 {
+  font-size: 1.5rem;
+}
+#popup p {
+  margin-top: 20px;
+}
+#popup button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
