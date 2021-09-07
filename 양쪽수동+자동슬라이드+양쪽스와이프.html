@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>자동/수동/스와이프 양쪽슬라이드</title>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>	
+<script>
+$(document).on("pagecreate","#layout",function(){
+
+	//자동슬라이드
+	//const z = setInterval( y, 2000 );
+
+	//왼쪽화살표버튼(오른쪽방향으로 이동)
+	$(".arr1").click(function(){
+			x();
+	});
+	
+	//오른쪽스와이프
+	$("#slide").swiperight(function(){
+		console.log("dd"); 
+		x();
+	});
+	
+	//왼쪽스와이프
+	$("#slide").swipeleft(function(){
+		 y();
+	});
+	
+	
+	function x(){
+		$("#slide").stop().animate({left:0},1000,function(){
+				$("#slide").prepend( $(this).children().last() );
+				$("#slide").css("left", "-800px");
+		});
+	}	
+	
+	//오른쪽화살표버튼(왼쪽방향으로 이동)
+	$(".arr2").click(function(){
+			y();
+	});
+	
+	function y(){
+		$("#slide").stop().animate({ left : "-1600px" },1000,function(){
+				$("#slide").append( $(this).children().first() );
+				$("#slide").css("left", "-800px");
+		});
+	}
+	
+});///////end
+</script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+h1,h2 {display:none;}
+img {max-width:100%;}
+#layout {width:800px; margin:auto; touch-action:none;}
+#layout section{border:5px solid red; overflow:hidden; position:relative;}
+#slide  {
+		width:4000px; height:300px; display:flex; 
+		position:relative; left:-800px; z-index:1;
+}
+#arr {
+		position:absolute; width:100%; height:100%;
+		top:0; display:flex; 
+		justify-content:space-between;
+		align-items:center;
+}
+#arr button {font-size:5rem; background:none; border:none; transition:0.5s;}
+#arr button:hover {transform:scale(1.3); color:tomato; cursor:pointer;}
+</style>
+</head>
+<body>
+	<div id="layout" data-role="page">
+		<h1>>자동/수동/스와이프</h1>
+		<section>
+			<h2>슬라이드</h2>
+			<div id="slide">
+				<a href="#"><img src="images/roll_1.jpg" alt="1"></a>
+				<a href="#"><img src="images/roll_2.jpg" alt="2"></a>
+				<a href="#"><img src="images/roll_3.jpg" alt="3"></a>
+				<a href="#"><img src="images/roll_4.jpg" alt="4"></a>
+				<a href="#"><img src="images/roll_5.jpg" alt="5"></a>
+			</div>
+			<div id="arr">
+				<button type="button" class="material-icons arr1" title="오른쪽방향으로">chevron_left</button>
+				<button type="button" class="material-icons arr2" title="왼쪽방향으로">chevron_right</button>
+			</div>
+		</section>
+	</div>
+</body>
+</html>
+
+
+

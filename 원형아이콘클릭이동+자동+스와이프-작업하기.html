@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>자동/수동/스와이프 양쪽슬라이드</title>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>	
+<script>
+$(document).on("pagecreate","#layout",function(){	
+	
+	 
+	 
+
+	
+});///////end
+</script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+h1,h2 {display:none;}
+img {width:100%; display:block;}
+#layout {
+		width:800px; margin:auto; touch-action:none;
+}
+#layout section{
+		border:5px solid red; 
+		overflow:hidden; 
+		position:relative;
+}
+#slide  {
+		width:5600px; height:300px; display:flex; flex-wrap:wrap;
+		position:relative;  		
+}
+#slide a {display:block; width:800px;}
+
+#circle {
+		position:absolute; bottom:10px; 
+		z-index:1; width:120px;
+		border:1px solid blue;
+		display:flex; justify-content:space-between;
+		left:calc((800px - 120px) / 2);
+}
+#circle button {
+		width:20px; height:20px; border-radius:50%; 
+		background:#ddd; border:none; display:block;
+}
+#circle button.active {background:orange;}
+</style>
+</head>
+<body>
+	<div id="layout" data-role="page">
+		<h1>>자동/수동/스와이프</h1>
+		<section>
+			<h2>슬라이드</h2>
+			<div id="slide">				
+				<a href="#"><img src="images/roll_1.jpg" alt="1"></a>
+				<a href="#"><img src="images/roll_2.jpg" alt="2"></a>
+				<a href="#"><img src="images/roll_3.jpg" alt="3"></a>
+				<a href="#"><img src="images/roll_4.jpg" alt="4"></a>
+				<a href="#"><img src="images/roll_5.jpg" alt="5"></a>				
+			</div>
+			<div id="circle">
+				<button type="button" class="active"></button>
+				<button type="button"></button>
+				<button type="button"></button>
+				<button type="button"></button>
+				<button type="button"></button>
+			</div>
+		</section>
+	</div>
+</body>
+</html>
+
+
+
