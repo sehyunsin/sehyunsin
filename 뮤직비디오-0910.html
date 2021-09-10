@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>뮤직비디오</title>
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+html, body {font:10pt/200% "나눔스퀘어"; color:#444;}
+h1 {display:none;}
+img {max-width:100%;}
+#layout {max-width:1000px; margin:auto; margin-top:50px; border:1px dashed red; display:flex;}
+#layout> section:first-child> h2 {display:none;}
+#layout> section {flex:1;}
+#layout> section:first-child {margin-right:20px;}
+#layout> section:last-child img {width:50px; margin-right:5px;}
+#layout> section:last-child {padding-top:20px;}
+#layout h2 {font-size:1.4rem;}
+#layout p {font-size:0.95rem; color:#666;}
+#layout a {text-decoration:none; color:blue;}
+#layout button {background:royalblue; border:none; color:white; padding:5px 15px; border-radius:20px;}
+#layout button:hover {transform:translateY(-3px);}
+</style>
+</head>
+<body>
+	<h1>뮤직비디오</h1>
+	<div id="layout">
+		<section>
+			<img src="img/video.jpg" alt="비디오">
+			<h2>뮤직비디오</h2>
+		</section>
+		<section>
+			<img src="img/icon_pr.jpg" alt="프리미어">
+			<img src="img/icon_ps.jpg" alt="포토샵">
+			<h2>힙합 아티스트들은 포스터/뮤직비디오 어떻게 만들지?</h2>
+			<p>궁금한 나라의 넉밀스가 파헤치는 국힘 대표들의 우당탕탕 정복기</p>
+			<a href="#">지금확인</a>
+			<hr>
+			<h2>총 상금 200만원 + <b>@딩고 프리스타일</b>에 내가 만든 포스터와 영상이!</h2>
+			<p>나만의 '궁나넉' 포스터 or 팬비디오를 재미있게 만들면 참여 완료.</p>
+			<button type="button">이벤트 참여하기</button>
+		</section>
+	</div>
+</body>
+</html>
