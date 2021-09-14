@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ipad mini</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .phone {
+      display: none;
+    }
+
+    #layout {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #layout>div {
+      overflow: hidden;
+    }
+
+    #layout>div>img {
+      transform: translateX(-40px);
+    }
+
+    #layout>div>img:hover {
+      filter: sepia(100%);
+      transform: scale(1.1);
+      overflow: hidden;
+      transition: 0.5s;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    p {
+      margin-top: 20px;
+    }
+
+    a:first-of-type {
+      display: block;
+      background: dodgerblue;
+      color: white;
+      width: 60px;
+      border-radius: 20px;
+      padding: 3px 5px 7px 5px;
+      text-align: center;
+      margin: 20px 0;
+      transition: 0.5s;
+    }
+
+    a:first-of-type:hover {
+      background: red;
+      transform: translateY(-5px);
+    }
+
+    a:last-of-type {
+      color: darkblue;
+      display: inline-block;
+      position: relative;
+    }
+
+    a:last-of-type::after {
+      content: "";
+      color: red;
+      transition: 0.5s;
+      position: absolute;
+      border-bottom: 3px solid red;
+      left: 0; bottom: -3px;
+      width: 0%;
+    }
+
+    a:last-of-type:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      .pc {
+        display: none;
+      }
+
+      .phone {
+        display: block;
+      }
+
+      #layout {
+        flex-direction: column;
+      }
+
+      #layout>div>img {
+        transform: translateX(0px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="layout">
+    <div>
+      <img src="images/pic04.jpg" alt="아이패드" class="pc">
+      <img src="images/pic02.jpg" alt="아이패드" class="phone">
+    </div>
+    <section>
+      <h1>ipad mini</h1>
+      <h2>Small in size.<br>Big on capability.</h2>
+      <p>From $399</p>
+      <a href="#">Buy</a>
+      <a href="#">Learn more &#62;</a>
+    </section>
+  </div>
+</body>
+
+</html>
