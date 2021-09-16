@@ -1,0 +1,183 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font: 10pt/180% "나눔고딕""맑은고딕";
+  color: #555;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  max-width: 100%;
+}
+
+#layout {
+  max-width: 900px;
+  margin: auto;
+}
+
+header {
+  background: #c721d6;
+  color: white;
+  padding: 15px;
+  display: flex;
+}
+
+header h1 {
+  flex: 1;
+  text-align: center;
+}
+
+header button {
+  background: none;
+  color: white;
+  padding: 0px 5px 2px 5px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: none;
+}
+
+nav {
+  position: absolute;
+  width: 100%;
+  height: 70vh;
+  background: white;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+  display: none;
+  padding: 30px;
+}
+
+nav ul {
+  list-style: none;
+  line-height: 350%;
+}
+
+nav li {
+  border-bottom: 1px solid #888;
+}
+
+nav a {
+  display: block;
+}
+
+main {
+  padding: 10px;
+  text-align: justify;
+}
+
+main h2 {
+  color: black;
+  margin: 10px 0;
+}
+
+main p img {
+  width: 50px;
+  float: left;
+  margin-right: 10px;
+}
+
+figure {
+  max-width: 95%;
+  margin: 10px auto;
+}
+
+figure img {
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+figure figcaption {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #db564c;
+}
+
+aside {
+  background: #f0c8eb;
+  padding: 10px;
+}
+
+aside h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+aside h3::before {
+  content: "\2619";
+  color: #9f00b7;
+  margin-right: 10px;
+}
+
+footer {
+  background: #ccc;
+  text-align: center;
+  padding: 10px;
+}
+
+#arr {
+  display: inline-block;
+  background: white;
+  padding: 2px 5px;
+  bottom: 10px;
+  right: 10px;
+  position: fixed;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  font-size: 1rem;
+  color: black;
+  border-radius: 5px;
+}
+
+@media (min-width:900px) {
+  nav {
+    display: block;
+    height: initial;
+    box-shadow: none;
+    background: none;
+    position: initial;
+    padding: 10px;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  nav li {
+    padding: 0 10px;
+    border: none;
+  }
+
+  nav a {
+    position: relative;
+  }
+
+  nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    border-bottom: 3px solid #c721d6;
+    bottom: 8px;
+    left: 0;
+    transition: 0.5s;
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+
+  header button {
+    display: none;
+  }
+}

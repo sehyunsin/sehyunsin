@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오시는 길</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      //동그라미 마우스 반응
+      $("#map a").on("focus mouseenter" , function(){
+        $("#map a").removeClass("active");
+        $(this).addClass("active");
+      });
+
+    });
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #map {
+      width: 530px;
+      height: 210px;
+      background: #dbf1fe url("images/bg.jpg") no-repeat right bottom;
+      padding: 20px 30px;
+    }
+
+    #map h1 {
+      font-size: 1.1rem;
+      color: #333;
+      position: relative;
+      display: inline-block;
+    }
+
+    #map h1::before {
+      position: absolute;
+      content: "";
+      width: 52px;
+      border-top: 4px solid #3d63a7;
+      top: -5px;
+      transition: 0.5s;
+    }
+
+    #map h1:hover::before {
+      width: 100%;
+    }
+
+    #map nav {
+      width: 92%;
+      display: flex;
+      margin-top: 27px;
+      justify-content: space-between;
+    }
+
+    #map a {
+      width: 78px;
+      height: 78px;
+      background: white;
+      border-radius: 50%;
+      text-align: center;
+      color: #666;
+      font-weight: bold;
+      font-size: 0.8rem;
+      text-decoration: none;
+      padding-top: 27px;
+    }
+
+    #map a:last-child {
+      padding-top: 20px;
+    }
+
+    #map a.active {
+      background: #3d63a7;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="map">
+    <h1>울릉도로 오시는 길</h1>
+    <nav>
+      <a href="#">포항에서</a>
+      <a href="#">묵호에서</a>
+      <a href="#">강릉에서</a>
+      <a href="#">후포에서</a>
+      <a href="#">울릉도에서 독도로</a>
+    </nav>
+  </section>
+</body>
+
+</html>

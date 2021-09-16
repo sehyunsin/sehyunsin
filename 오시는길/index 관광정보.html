@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>울릉도 관광정보</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #info {
+      width: 488px;
+      height: 166px;
+      background: url("images/travel_bg.jpg") no-repeat left top/ cover;
+      letter-spacing: -0.54pt;
+      padding: 15px 17px;
+      font-family: "맑은 고딕";
+    }
+
+    h2 {
+      color: white;
+      font-size: 1.15rem;
+    }
+
+    h2 b {
+      font-size: 0.8rem;
+      padding-left: 20px;
+    }
+
+    #info div {
+      display: flex;
+      margin-top: 30px;
+      margin-left: 16px;
+    }
+
+    #info section {
+      flex: 1;
+      display: flex;
+    }
+
+    #info h3 {
+      color: #fef3bb;
+      font-size: 0.95em;
+    }
+
+    #info section:nth-child(1) {
+      align-items: center;
+    }
+
+    #info section:nth-child(1) a {
+      margin-right: 10px;
+    }
+
+    #info section:nth-child(2) {
+      margin-top: -40px;
+      align-items: center;
+    }
+
+    #info section:nth-child(2) a {
+      margin-right: 10px;
+    }
+
+    #info section:nth-child(3) {
+      margin-top: 10px;
+
+    }
+
+    #info section:nth-child(3) h3 {
+      margin: -15px 0 0 10px;
+    }
+
+    #info section a {
+      transition: 0.5s;
+    }
+
+    #info section a:hover {
+      transform: translateY(-5px);
+      filter: blur(2px) sepia(50%);
+    }
+  </style>
+</head>
+
+<body>
+  <section id="info">
+    <h2>울릉도 관광정보<b>푸른바다의 수풀언덕</b></h2>
+    <div>
+      <section>
+        <a href="#"><img src="images/travel_01.png" alt="관광지도"></a>
+        <h3>관광지도</h3>
+      </section>
+      <section>
+        <a href="#"><img src="images/travel_04.png" alt="가이드북"></a>
+        <h3>가이드북</h3>
+      </section>
+      <section>
+        <a href="#"><img src="images/travel_02.png" alt="울릉해담길"></a>
+        <h3>울릉<br>해담길</h3>
+      </section>
+    </div>
+  </section>
+</body>
+
+</html>
