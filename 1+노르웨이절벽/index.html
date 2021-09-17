@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>노르웨이의 유명한 절벽</title>
+	<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			font-family: 'Do Hyeon', sans-serif;
+			line-height: 23pt;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		#layout {
+			max-width: 1200px;
+			margin: auto;
+		}
+
+		header {
+			padding: 30pt;
+			background: gold;
+		}
+
+		nav {
+			margin: 10pt;
+		}
+
+		ul {
+			list-style-position: inside;
+			list-style-type: square;
+		}
+
+		ul:hover {
+			background: skyblue;
+		}
+
+		li {
+			padding: 10pt;
+			border-bottom: 1px dashed gray;
+			transition: 0.5s;
+		}
+
+		li:hover {
+			transform: translateX(10px);
+
+		}
+
+		main {
+			padding: 0pt;
+			margin: 10pt;
+			overflow: hidden;
+		}
+
+		main>h2 {
+			padding-bottom: 5pt;
+			animation: ddd 2.5s;
+		}
+
+		@keyframes ddd {
+			from {
+				transform: translateY(-100px);
+			}
+
+			to {
+				transform: translateY(0px);
+			}
+		}
+
+		main>p {
+			padding-bottom: 5pt;
+		}
+
+		main>img {
+			width: 100%;
+			display: flex;
+			transition: 0.5s;
+		}
+
+		main>img:hover {
+			border-radius: 10px;
+			filter: sepia(100%);
+		}
+
+		aside {
+			padding: 10pt;
+			margin: 10pt;
+			font-size: 0.8rem;
+			background: pink;
+		}
+
+		aside>p {
+			padding-bottom: 5pt;
+		}
+
+		aside>h2::before {
+			content: "♥";
+		}
+
+		footer {
+			background-color: #f1f1f1;
+			text-align: center;
+			padding: 20pt;
+			font-size: 10pt;
+			line-height: 15pt;
+		}
+
+		@media screen and (min-width:501px) {
+			#layout {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: flex-start;
+			}
+
+			nav {
+				flex: 2;
+			}
+
+			main {
+				flex: 8;
+			}
+
+			aside {
+				flex-basis: 100%;
+			}
+		}
+
+		@media only screen and (min-width:801px) {
+			#layout {
+				flex-wrap: nowrap;
+			}
+
+			nav {
+				flex: 2;
+			}
+
+			main {
+				flex: 7;
+			}
+
+			aside {
+				flex: 3;
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+	<header>
+		<h1>프리키스스톨렌 절벽</h1>
+	</header>
+	<div id="layout">
+		<nav>
+			<ul>
+				<li><a href="#">드라이브</a></li>
+				<li><a href="#">도보</a></li>
+				<li><a href="#">반환점</a></li>
+				<li><a href="#">목적지</a></li>
+			</ul>
+		</nav>
+		<main>
+			<h2>도보</h2>
+			<p>도보로 프리키스스톨렌 절벽 정상까지 걸으면 날씨와 건강상태에 따라 다르겠지만 약 2시간 소요됩니다.</p>
+			<img src="images/rock.jpg" alt="절벽">
+		</main>
+		<aside>
+			<h2>프리키스스톨렌이 뭔가요?</h2>
+			<p>프리키스스톨렌은 매우 높고 가파른 절벽이지만 또한 산의 일부입니다.</p>
+			<h2>어디에 있나요?</h2>
+			<p>프리키스스톨렌은 노르웨이에 있는 유명 관광 명소입니다.</p>
+			<h2>입장료는 얼마인가요?</h2>
+			<p>도보로 간다면 무료입니다.</p>
+		</aside>
+	</div>
+
+	<footer>
+		이 웹페이지는 반응형으로서 브라우저 창 크기를 조절하면 웹 디자인의 모양이 유연하게 변화합니다.
+	</footer>
+
+	</script>
+</body>
+
+</html>
