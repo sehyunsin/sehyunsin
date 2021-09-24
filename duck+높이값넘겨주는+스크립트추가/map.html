@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>오리고기집 사랑채</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/duck.js"></script>
+<link rel="stylesheet" href="css/duck.css">
+</head>
+<body id="index">
+	<div id="layout">
+		<iframe src="header.html" id="header"></iframe>
+		<main>
+			
+
+			
+<!-- ///////////////////////// 카카오맵 - 지도퍼가기 -->
+<!-- 1. 지도 노드 -->
+<div id="daumRoughmapContainer1632361868955" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+<!--
+	2. 설치 스크립트
+	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+-->
+<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+<!-- 3. 실행 스크립트 -->
+<script charset="UTF-8">
+	new daum.roughmap.Lander({
+		"timestamp" : "1632361868955",
+		"key" : "27fgc",
+		"mapWidth" : "1200",
+		"mapHeight" : "600"
+	}).render();
+</script>			
+			
+
+			
+		</main>
+		<iframe src="footer.html" id="footer"></iframe>
+	</div>
+</body>
+</html>
