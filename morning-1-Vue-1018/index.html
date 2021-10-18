@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>아침고요펜션 웹사이트 리뉴얼 제작</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="script/jquery-1.12.3.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="script/script.js"></script>
+	</head>
+	<body>
+		<div id="layout">
+			<header>
+				<div>
+					<a href="#"><img v-bind:src="logo" alt="로고"></a>
+					<nav>
+						<a href="#">펜션소개</a>
+						<div>
+							<a href="#">룸 미리보기</a>
+							<nav>
+								<a href="#">사랑 하나</a>
+								<a href="#">설렘 둘</a>
+								<a href="#">아침 한스푼</a>
+								<a href="#">고요 두스푼</a>
+							</nav>
+						</div>
+						<div>
+							<a href="#">커뮤니티</a>
+							<nav>
+								<a href="#">예약하기</a>
+								<a href="#">문의하기</a>
+								<a href="#">갤러리</a>
+							</nav>
+						</div>
+						<div>
+							<input type="text" style="width:70%;"  placeholder="추가 주문하기" v-model="zi">
+							<button type="button" v-on:click="add">확인</button>
+							<nav>
+								<a href="#" v-for="zz in zzz">{{zz.z}}</a>
+							</nav>
+						</div>
+					</nav>
+				</div>
+			</header>
+			<section id="sliding">
+				<h1>당신을 위한 힐링타임<br>
+				아침고요펜션과 함께 하세요.</h1>
+				<div>
+					<img src="images/slide1.jpg" alt="1번이미지">
+					<img src="images/slide2.jpg" alt="2번이미지">
+					<img src="images/slide3.jpg" alt="3번이미지">
+					
+				</div>
+			</section>
+			<main>
+				<section id="notice">
+					<h1>{{gong}}</h1>
+					<ul>
+						<li><a href="#">진짜 아기랑 남편이랑 잘 쉬다 왔어요!!</a><span>2018-03-25</span></li>
+						<li><a href="#">엄청 만족합니다~</a><span>2018-02-13</span></li>
+						<li><a href="#" v-on:click="thanks">감사합니다.</a><span>2017-12-09</span></li>
+						<li><a href="#">잘 쉬고 왔습니다^^</a><span>2017-08-19</span></li>
+						<li><a href="#">3일간 머물고 왔습니다.</a><span>2017-05-26</span></li>					
+						<li><a href="#">가을에 한번 더 가려고 합니다.</a><span>2017-03-07</span></li>
+						<li>{{q}}</li>						
+					</ul>					
+				</section>	
+				<section id="popup">
+					<h1>팝업배너</h1>
+					<img src="images/partner.jpg" alt="파트너사" width="600">
+					<button>닫기</button>
+				</section>
+				<section id="partner">
+					<h1>협력사 콘텐츠</h1>
+					<img src="images/partner.jpg" alt="파트너사" width="300">
+					<div>
+						<section>
+							<h2>사계절 바베큐장<br>
+							쿡TV & 와이파이</h2>
+						</section>
+						<ul>
+							<li><a href="#">남이섬 짚 라인</a></li>
+							<li><a href="#">쁘띠 프랑스</a></li>
+							<li><a href="#">자라섬 재즈페스티벌</a></li>
+							<li><a href="#">가평 사계절 썰매장</a></li>							
+							<li><input type="text" v-model="q"></li>
+						</ul>
+					</div>
+				</section>
+				<section id="icons">
+					<h1>아이콘형 콘텐츠</h1>
+					<div>
+						<a href="#"><img src="images/icon1.png" alt="펜션 알림판"></a>
+						<a href="#"><img src="images/icon2.png" alt="펜션 행사일정"></a>
+						<a href="#"><img src="images/icon3.png" alt="사용자 이용규칙"></a>
+					</div>
+				</section>
+			</main>
+			<footer>
+				<ul>
+					<li>
+						<a href="#">법적고지</a><br>	
+						<a href="#">개인정보보호방침</a><br>
+						<a href="#">개인정보처리방침</a><br>
+						<button onclick="insa()">인사하세요</button>
+						<span>{{inin}}</span>						
+					</li>
+					<li>
+						입금: 농협 302-1051-7449-71 최주희<br>
+						문의전화: 010-8949-1927<br>
+						<a href="#">이메일: master@mpension.co.kr</a><br>
+						주소: 지경기 가평군 상면 수목원로 380<br>
+						<input type="text" v-on:keyup="onClick($event)"  v-model="pop">
+					</li>
+					<li>
+						<span v-for="item in items">{{item.text}}</span>
+						<!--
+						<span>상호명: 주식회사 비즈온네트웍스</span>
+						<span>사업자등록번호: 244-87-00033</span>
+						<span>대표자: 이희민</span>
+						-->
+						<a href="#">사이트제작: 비즈온네트웍스</a>						
+					</li>
+				</ul>
+			</footer>
+		</div>
+		<!--#스크립트:시작-->
+		<script>
+		//1. 텍스트 바인딩
+		const x = new Vue({
+			el:"#notice h1",
+			data: {gong:"공지사항"}
+		});
+		
+		//2. 이미지 바인딩
+		const y = new Vue({
+			el:"header img",
+			data:{logo:"images/logo.jpg"}
+		});
+		
+		//3. 버튼을 클릭하기 전 초기값.
+		const z = new Vue({
+			el: "footer ul li:first-child",
+			data:{inin:""}
+		});
+		//3.((뷰 바인딩)) 버튼을 클릭하면 "굿모닝" 글자가 나온다.
+		function insa(){
+			z.inin="굿모닝";
+		}
+		
+		//4.((뷰 바인딩)) "감사합니다" 글자를 클릭하면 "또 방문해주세요^^"라는 경고창이 뜬다. 
+		const t = new Vue({
+			el:"#notice li:nth-child(3)",
+			methods:{
+				thanks: function(){
+					alert("감사합니다.\n또 방문해주세요^^");
+				}
+			}
+		});
+		
+		//5.((양방향 바인딩)) 글상자에 글자를 입력하면 실시간으로 공지사항 항목 추가된다.
+		const qq = new Vue({
+			//글상자와 글자가 나와야하는 요소의 부모 요소여야한다.
+			el:"main", 
+			data:{q:""}//초기값:글자없음
+		});
+		
+		//6.((양방향 바인딩)) 텍스트박스에 글자를 입력 후 엔터키를 치면 경고창에 입력한 그 글자가 나온다.
+		const pp = new Vue({
+			el:"footer li:nth-child(2) input",
+			data:{pop:""},  //초기값:글자없음
+			methods:{
+				onClick: function(ev){
+					//키코드13(엔터키)을 누르면 경고창 뜬다.
+					if(ev.keyCode==13){alert(pp.pop);}
+				}
+			}
+		});
+		
+		//7.((루프 바인딩)) 하단 맨 오른쪽 span 항목들을 루프 바인딩 처리함.
+		const sp = new Vue({
+			el:"footer li:last-child",
+			data:{
+				items:[
+					{text:"상호명: 주식회사 비즈온네트웍스"},
+					{text:"사업자등록번호: 244-87-00033"},
+					{text:"대표자: 이희민"}
+				]
+			}
+		});
+		
+		//8.((루프 바인딩))상단 메뉴에서 4번째 주메뉴에 서브메뉴항목 추가
+		const zs = new Vue({
+			el:"header nav div:last-of-type",
+			data:{
+					zi:"",//기본값은 공란임.
+					zzz:[
+							{z:"짜장면"},
+							{z:"삼선짜장"},
+							{z:"잡채밥"}
+					]
+			},
+			methods:{
+					add: function(){
+						if(zs.zi==""){
+							alert("메뉴를 입력하세요");
+							return false;
+						}
+						zs.zzz.push({z:zs.zi});
+						zs.zi="";
+					}
+			}
+		});
+		
+		</script>
+		<!--#스크립트:끝-->
+	</body>
+</html>
+
+
