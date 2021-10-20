@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<title>노르웨이의 유명한 절벽</title>
+	<script>
+		$(document).ready(function(){
+			//상단 오른쪽 토글 스위치 버튼 활성화 표시
+			$("header [type='checkbox']").change(function(){
+				//체크박스가 체크 되었다면,
+				if($(this).is(":checked")){
+					$(this).parent().addClass("on");
+				}else{
+					$(this).parent().removeClass("on");
+				}
+			});
+		});
+	</script>
+	<style>
+		/*전체*/
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			font: 13pt/170% "나눔고딕", "맑은 고딕";
+		}
+
+		img {
+			max-width: 100%;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+		a:hover {
+			text-decoration: underline;
+			color: skyblue;
+		}
+
+		/*상단*/
+		header {
+			max-width: 1500px;
+			margin: auto;
+			background: #f1f1f1;
+			padding: 30pt 0;
+			text-align: center;
+			position: relative;
+		}
+
+		header form {
+			width: 62px;
+			position: absolute;
+			right: 10px;
+			bottom: 2px;
+		}
+
+		header label {
+			position: relative;
+			width: 100%;
+			height: 34px;
+			display: block;
+			border-radius: 17px;
+		}
+
+		header label.off {
+			background: #666;
+		}
+
+		header label.on {
+			background: dodgerblue;
+		}
+
+		header span {
+			position: absolute;
+			width: 26px;
+			height: 26px;
+			background: white;
+			border-radius: 50%;
+			left: 4px;
+			bottom: 4px;
+		}
+
+		header input {
+			opacity: 0;
+		}
+
+		header input+span {
+			transition: 0.4s;
+		}
+
+		header input:checked+span {
+			left: 30px;
+		}
+
+
+		/*메뉴+메인+부가*/
+		#layout {
+			max-width: 1500px;
+			margin: auto;
+		}
+
+		/*메뉴*/
+		nav {
+			margin: 10pt;
+		}
+
+		nav ul {
+			list-style-position: inside;
+		}
+
+		nav li {
+			padding: 10pt;
+			border-bottom: 1px solid #ddd;
+		}
+
+		/*메인+부가*/
+		nav+div {
+			margin: 10pt;
+		}
+
+		/* 메인*/
+		main h2 {
+			margin-bottom: 5pt;
+			display: inline-block;
+		}
+
+		main img {
+			display: block;
+		}
+
+		/*부가정보*/
+		aside {
+			background: lightblue;
+			padding: 10pt;
+		}
+
+		aside h2 {
+			margin: 5pt 0;
+		}
+
+		aside h2.bg {
+			background: dodgerblue;
+		}
+
+		/*하단*/
+		footer {
+			background: #f1f1f1;
+			padding: 10pt;
+			font-size: 0.8rem;
+			line-height: 150%;
+			text-align: center;
+		}
+
+		/*아이패트크기이상(최소넓이 768픽셀)*/
+		@media(min-width:768px) {
+			#layout {
+				display: flex;
+			}
+
+			nav {
+				flex: 1;
+			}
+
+			nav+div {
+				flex: 3;
+			}
+		}
+
+		/*아이패드PRO크기이상(최소넓이 1024픽셀)*/
+		@media(min-width:1024px) {
+			nav {
+				flex: 0.7;
+			}
+
+			nav+div {
+				display: flex;
+				margin-right: 0;
+			}
+
+			main {
+				flex: 3;
+			}
+
+			aside {
+				flex: 1.5;
+				margin-left: 10pt;
+				opacity: 0.75;
+			}
+
+			aside h2 {
+				font-size: 1.2rem;
+			}
+		}
+	</style>
+
+
+</head>
+
+<body>
+	<header>
+		<h1>프리키스스톨렌 절벽</h1>
+		<form method="get" action="#">
+			<label class="off">
+				<input type="checkbox">
+				<span></span>
+			</label>
+		</form>
+	</header>
+	<div id="layout">
+		<nav>
+			<ul id="f">
+				<li><a href="#" v-for="x in z">{{x.y}}</a></li>
+				<li><a href="http://naver.com" v-for="x in z">{{x.l}}</a></li>
+				<li><a href="#" v-for="x in z">{{x.p}}</a></li>
+			</ul>
+			<ul>
+				<li id="sin5"><a href="#" v-on:click="yy">드라이브</a></li>
+				<li id="sin55">
+					{{y}}
+					<button onclick="m()">say ho</button>
+				</li>
+			</ul>
+			<ul id="food">
+				<li v-for="u in s">{{u.t}}</li>
+				<input type="text" v-model="m" placeholder="메뉴이름" v-on:keyup="onClick($event)">
+				<button v-on:click="onAddClick">추가</button>
+			</ul>
+		</nav>
+		<div>
+			<main>
+				<h2>{{d}}</h2>
+				<p>도보로 프리키스스톨렌 절벽 정상까지 걸으면 날씨와 건강상태에 따라 다르지만 약 2시간 소요됩니다.</p>
+				<p>도보로 프리키스스톨렌 절벽 정상까지 걸으면 날씨와 건강상태에 따라 다르지만 약 2시간 소요됩니다.</p>
+				<p>도보로 프리키스스톨렌 절벽 정상까지 걸으면 날씨와 건강상태에 따라 다르지만 약 2시간 소요됩니다.</p>
+				<p id="sin">
+				{{x}}
+				<input type="text" v-model="x">
+				</p>
+				<img v-bind:src="i" alt="절벽">
+			</main>
+			<aside>
+				<h2>프리키스스톨렌이 뭔가요?</h2>
+				<p>프리키스스톨렌은 매우 높고 가파른 절벽이지만 또한 산의 일부입니다.</p>
+				<h2>어디에 있나요?</h2>
+				<p>프리키스스톨렌은 노르웨이에 있는 유명 관광 명소입니다.</p>
+				<h2>입장료는 얼마인가요?</h2>
+				<p>도보로 간다면 무료입니다.</p>
+				<p> 
+					<input type="text" v-on:keyup="onClick($event)" v-model="yyy">
+				</p>
+			</aside>
+		</div>
+	</div>
+	<footer>
+		이 웹페이지는 반응형으로서 브라우저 창 크기를 조절하면 웹 디자인의 모양이 유연하게 변화됩니다.
+	</footer>
+
+
+	<script>
+		/*
+//step01__
+document.querySelectorAll("nav li")[0].style.border="1px dashed red";
+document.querySelectorAll("nav li")[1].style.border="1px dashed red";
+document.querySelectorAll("nav li")[2].style.border="1px dashed red";
+document.querySelectorAll("nav li")[3].style.border="1px dashed red";
+
+//step02__
+const $li = document.querySelectorAll("nav li");
+$li[0].style.border="1px dashed red";
+$li[1].style.border="1px dashed red";
+$li[2].style.border="1px dashed red";
+$li[3].style.border="1px dashed red";
+
+//step03__
+const $li = document.querySelectorAll("nav li");
+for(let i=0; i<4; i++){
+	$li[i].style.border="1px dashed red";
+}
+//step04__
+document.querySelector("aside").addEventListener("click",function(){
+	document.querySelector("aside h2").classList.add("bg");
+});*/
+	
+	
+		var dd = new Vue({
+			el:"main h2",
+			data:{d:"도보"}
+		});
+
+		var img = new Vue({
+			el:"main img",
+			data:{i:"images/rock.jpg"}
+		});
+		var click = new Vue({
+			el:"#sin55",
+			data:{y:"세이호"}
+		});
+		function m() {
+			click.y ="ho ho ho";
+		}
+		var click20 = new Vue({
+			el:"#sin5",
+			data:{
+				yy:function(){
+					alert("가즈아~");
+				}
+			}
+		});
+
+		var input = new Vue({
+			el:"#sin",
+			data:{x:"머든쓰시던가"}
+		});
+
+		var input20 = new Vue({
+			el:"aside p:last-child",
+			data:{yyy:''},
+			methods:{onClick:function(e){
+				if(e.keyCode==13){
+					alert(input20.yyy);
+				}
+			}}
+		});
+		var sin20 = new Vue({
+			el:"#f",
+			data:{
+				z:[
+					{y:"도보"},
+					{l:"반환점"},
+					{p:"목적지"}
+				]
+			}
+		});
+
+		var sin21	= new Vue({
+			el:"#food",
+			data:{
+				m:"",
+				s:[
+					{t:"짜장"},
+					{t:"탕수육"},
+					{t:"짬뽕"}
+				]
+			},
+			methods:{
+				onAddClick:function(){
+					sin21.s.push({t:sin21.m});
+					sin21.m="";
+				},
+				onClick:function(e){
+					if(e.keyCode==13){
+						sin21.s.push({t:sin21.m});
+						sin21.m="";
+					}	
+				}
+			}
+		});
+		
+		
+	
+	</script>
+</body>
+
+</html>
