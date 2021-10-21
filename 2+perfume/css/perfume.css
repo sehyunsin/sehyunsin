@@ -1,0 +1,124 @@
+@charset "utf-8";
+
+/*공통*/
+*{
+	margin:0; padding:0; box-sizing:border-box;
+}
+html {
+	scroll-behavior:smooth;
+}
+html,body {
+	font:12pt/180% "나눔고딕";
+}
+img {
+	max-width:100%; display:block;
+}
+a {
+	text-decoration:none; color:black;
+}
+
+#layout {
+	max-width:600px; margin:auto;
+	position:relative;
+}
+
+/*상단*/
+header {
+	background:#c721d6;/*주조색*/  color:white;
+	display:flex; align-items:center;
+	padding:15px;
+}
+header button {
+	padding:3px 6px; color:white;
+	background:none; border:none;
+	font-size:1.5rem;
+}
+header h1 {
+	flex:1; text-align:center;
+}
+
+/*메뉴*/
+nav {
+	position:absolute; width:100%;
+	padding:10px 20px; height:80vh;
+	box-shadow:0 5px 5px rgba(0,0,0,  0.8);
+	display:none;
+	background:white;
+}
+nav a{
+	display:block; padding:20px;
+	border-bottom:1px solid #aaa;
+	font-weight:bold; color:#444;	
+}
+
+
+/*메인*/
+main {
+	padding:10px;
+}
+main h2 {
+	border:0px solid red;
+	padding:20px 0 10px 0;
+}
+main p {
+	text-align:justify;
+	padding-bottom:20px;
+}
+main p img {
+	width:50px; float:left; margin-right:20px;
+}
+main figure img {
+	width:95%; margin:auto;
+	border-radius:20px;
+	box-shadow:3px 3px 8px rgba(0,0,0, 0.7);
+}
+main figcaption {
+	text-align:center;
+	padding:10px 0 20px 0;
+	font-size:0.9rem; color:#666;
+}
+
+/*기타정보*/
+section {
+	background:#f0c8eb; /*보조색*/
+	padding:20px 10px;
+}
+section h3 {
+	padding-bottom:10px;
+}
+section h3::before {
+	content:"\2619"; color:#c721d6;/*주조색*/
+	padding-right:10px;
+	
+}
+
+/*하단정보*/
+footer {
+	background:#ddd; padding:10px;
+	color:#555;
+}
+
+#d7 {
+	display: flex;
+	margin: auto;
+	width: 10%;
+}
+#d7 img {
+	justify-content: space-between;
+	
+}
+
+/*맨아래 오른쪽 "위로"화살표*/
+#arrTop {
+	display:block;
+	position:fixed; bottom:10px; right:10px;
+	background:white;
+	box-shadow:0 0 5px black;
+	border-radius:5px;
+	padding:3px 6px;
+	font-size:1.5rem;
+	font-weight:bold;	
+}
+
+
+

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>향수</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="js/perfume.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<link rel="stylesheet" href="css/perfume.css">
+</head>
+
+<body>
+	<div id="layout">
+		<header>
+			<button type="button">&#x2630;</button>
+			<h1>
+				<ruby>
+					향수
+					<rt>
+						perfume
+					</rt>
+				</ruby>
+				에 대하여...
+			</h1>
+		</header>
+		<nav>
+			<a href="#f1" v-for="x in z">{{x.m1}}</a>
+		</nav>
+		<main>
+			<h2>향수의 어원</h2>
+			<p>
+				<img src="images/perfume2.png" alt="향수병">
+			{{pp}}
+			</p>
+			<figure>
+				<img v-bind:src="img21" alt="손목에 향수를 뿌리는 장면">
+				<figcaption>
+					향수를 손목에 분사하고 있는 장면
+				</figcaption>
+			</figure>
+			<p id="t1">
+				<button onclick="m()">{{t2}}</button>
+			</p>
+			<div id="tt1">
+				<p>{{y1}}
+				<input type="text" v-model="y1" placeholder="오이잉?">
+				</p>
+			</div>
+			<div id="ttt1">
+				<input type="text" v-on:keyup="onClick" placeholder="쓰고 엔터 쳐봐!" v-model="ll1">
+			</div>
+		</main>
+		<section>
+			<h3 id="f2">향수의 유래는?</h3>
+			<p>향수는 인류가 최초로 사용한 화장품이라고 볼 수 있습니다.</p>
+			<h3>향수의 어원은?</h3>
+			<p>라틴어 ‘per fumum’은 ‘연기를 통한다’는 의미입니다.</p>
+			<h3>향수의 농도는</h3>
+			<p>향수 원액의 농도에 따라 파르푕, 오드파르푕, 오드투알레트, 오드콜로뉴 등으로 나눌 수 있습니다.</p>
+			<div id="p9">
+				<input type="text" v-model="m" placeholder="멍뭉이" v-on:keyup="onClick">
+				<button type="button" v-on:click="addclick">멍멍</button>
+				<ul>
+					<li v-for="u in s" style="margin-left: 20px;">{{u.t}}</li>
+				</ul>
+			</div>
+		</section>
+		<footer>
+			<div id="d7">
+				<img src="images/icon1.png" alt="">
+				<img src="images/perfume1.jpg" alt="">
+				<img src="images/perfume2.png" alt="">
+			</div>
+			로션을 바른 다음 향수를 뿌려야 피부의 보습이 유지되며, 향수 지속시간도 오래 유지됩니다.
+		</footer>
+	</div>
+	<!--위로 올라가는 화살표-->
+	<a href="#layout" id="arrTop">&#8892;</a>
+</body>
+	<script>
+		var ppp = new Vue({
+			el:"main>p",
+			data:{pp:
+			"향수는 어원인 라틴어 'perfume'은 '연기를 통한다'는 의미를 담고 있는 향수는 인류가 최초로 사용한 화장품이라고 볼 수 있습니다. 약 5,000년 전의 고대 사람들이 종교적 의식, 곧 신과 인간과의 교감을 위한 매개체로 사용한데서부터 시작되었습니다. 향수 원액의 농도에 따라 파르퓡,오드파르퓡,오드투알레트,오드콜로뉴 등으로 나눌 수 있습니다."
+			}
+		});
+		var img = new Vue({
+			el:"figure img",
+			data:{img21:"images/perfume1.jpg"}
+		});
+
+		var t3 = new Vue({
+			el:"#t1",
+			data:{t2:"머선일이고"}
+		})
+		function m(){
+			t3.t2 = "멋이 중헌디";
+			alert("으잉");
+		}
+		var l1 = new Vue({
+			el:"#tt1",
+			data:{y1:""},
+		});
+
+		var lll1 = new Vue({
+			el:"#ttt1",
+			data:{ll1:""},
+			methods:{onClick:function(e){
+				if(e.keyCode==13){
+					alert(lll1.ll1);
+				}
+			}}
+		});
+		var op1 = new Vue({
+			el:"nav",
+			data:{
+				z:[
+					{m1:"향수의 어원"},
+					{m1:"향수의 유래"},
+					{m1:"향수의 종류"},
+					{m1:"향수의 지속시간"}
+				]
+			}
+		});
+		var p99 = new Vue({
+			el:"#p9",
+			data:{
+				m:"",
+				s:[
+					{t:"말티즈"},
+					{t:"푸들"},
+					{t:"비숑프리제"},
+					{t:"진돗개"}
+				]
+			},
+			methods:{
+				addclick:function(){
+					if(p99.m=="");
+					p99.s.push({t:p99.m});
+					p99.m="";
+				},
+				onClick:function(e){
+				if(e.keyCode==13){
+					p99.s.push({t:p99.m});
+					p99.m="";
+					}
+				}
+			}
+
+		});
+	</script>
+
+</html>
