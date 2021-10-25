@@ -1,0 +1,223 @@
+@charset "utf-8";
+
+/*공통*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  font: 10pt/180% "나눔고딕";
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+#layout {
+  max-width: 450px;
+  margin: auto;
+  position: relative;
+}
+
+/*header*/
+
+header {
+  background: #cf7e2e;
+  color: white;
+  display: flex;
+  padding: 15px 10px;
+}
+
+header button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+header h1 {
+  margin: auto;
+  transform: translateX(-10px);
+}
+
+/*menu*/
+nav {
+  position: absolute;
+  width: 100%;
+  height: 80vh;
+  background: white;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+nav a {
+  display: inline-block;
+  padding: 20px;
+  font-weight: bold;
+}
+
+nav li {
+  border-bottom: 1px solid #bbb;
+}
+
+nav ul {
+  list-style: url(../images/bullet.png);
+  padding-left: 30px;
+}
+
+/********main********/
+
+
+main {
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+main h2 {
+  margin-top: 20px;
+  padding: 10px 0;
+}
+
+main h2:not(:first-of-type) {
+  margin-top: 40px;
+}
+
+main p {
+  text-align: justify;
+}
+
+/*비빔국수*/
+#noodle_1+p img {
+  width: 120px;
+  float: left;
+  margin-right: 10px;
+}
+
+
+/*잔치국수*/
+#noodle_2 {
+  margin-top: 40px;
+}
+
+#noodle_2+ol {
+  color: #773030;
+  list-style-position: inside;
+  padding-bottom: 20px;
+}
+
+/*간장 비빔국수*/
+main>figure {
+  padding-top: 20px;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: 1s;
+}
+
+.active {
+  transform: translateY(0px);
+  opacity: 1;
+  transition: 1s;
+}
+
+main>figure img {
+  width: 95%;
+  margin: auto;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+}
+main>figure figcaption {
+  font-size: 0.95rem;
+  color: #444;
+  text-align: center;
+  padding-top: 5px;
+}
+
+/*멸치국수*/
+#noodle_4+div {
+  text-align: justify;
+}
+#noodle_4+div figure {
+  width: 120px;
+  float: right;
+  margin-left: 12px;
+}
+#noodle_4+div figure img {
+  width: 100%;
+  height: 70px;
+}
+#noodle_4+div figcaption {
+  font-size: 0.9rem;
+  color: #444;
+  text-align: center;
+  padding-top: 2px;
+}
+
+/*slide*/
+#slide {
+  position: relative;
+  width: 310%;
+  display: flex;
+}
+#slide a {
+  width: 100%;
+}
+#slide img {
+  width: 100%;
+  height: 250px;
+}
+
+/*기타정보*/
+main+section {
+  background: #ffaa56;
+  padding: 20px 10px;
+  margin-top: 40px;
+}
+main+section h3::before {
+  content: url(../images/bullet.png);
+  margin-right: 10px;
+}
+main+section h3:not(:first-of-type) {
+  padding-top: 10px;
+}
+
+/*footer*/
+footer {
+  background: #ddd;
+  padding: 10px;
+  text-align: center;
+  color: #555;
+}
+
+/*up 버튼*/
+#up {
+  display: block;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  border-radius: 20%;
+}
+
+
+/**********/
+@media(min-width:451px){
+  /*업버튼 오른쪽에 붙이기*/
+  #up {
+    right:calc(((100% - 450px)/2) + 10px); 
+  }
+}
